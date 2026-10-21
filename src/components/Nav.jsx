@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { nav, profile } from '../data.js';
 import { Download, Eye } from './Icons.jsx';
 import { viewResumeProps } from './ResumeViewer.jsx';
+import LogoMark from './Logo.jsx';
 
 const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
@@ -36,7 +37,7 @@ export default function Nav({ onViewResume }) {
   return (
     <header className={`nav${open ? ' open' : ''}`} ref={navRef}>
       <a href="#home" className="brand" aria-label={`${profile.name}, back to top`}>
-        <span className="brand-mark">KS</span><span className="brand-name">{profile.name}</span>
+        <LogoMark className="brand-mark" /><span className="brand-name">{profile.name}</span>
       </a>
       <nav className="nav-links" id="navLinks" aria-label="Sections">
         <span className="nav-ind" aria-hidden="true" style={{ width: ind.w, transform: `translateX(${ind.x}px)` }} />

@@ -8,6 +8,7 @@ import Contact from './components/Contact.jsx';
 import ResumeViewer, { viewResumeProps } from './components/ResumeViewer.jsx';
 import { About, Education, Goal, Journey, Marquee, Projects, Skills } from './components/Sections.jsx';
 import { Up } from './components/Icons.jsx';
+import LogoMark from './components/Logo.jsx';
 
 export default function App() {
   useEffect(() => initEffects(), []);
@@ -34,6 +35,7 @@ export default function App() {
       </main>
       <footer>
         <div className="wrap">
+          <div className="foot-brand"><LogoMark size={40} /><div><b>{profile.name}</b><span>Software Testing · Quality Assurance</span></div></div>
           <nav className="foot-links" aria-label="Profiles">
             <a href={`mailto:${profile.email}`}>Email</a><a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
             <a href={profile.github} target="_blank" rel="noopener">GitHub</a><a {...viewResumeProps(viewResume)}>Resume</a>

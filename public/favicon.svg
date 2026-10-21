@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>K S Meghana</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D9488"/><stop offset=".6" stop-color="#0284C7"/><stop offset="1" stop-color="#3B5BDB"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="118" fill="url(#sheen)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="56">
+    <path d="M136 376V170M376 150V376" stroke="#fff" stroke-opacity=".58"/>
+    <path d="M136 170L214 290L376 150" stroke="#fff"/>
+  </g>
+  <circle cx="414" cy="104" r="23" fill="#FB7185"/>
+</svg>
