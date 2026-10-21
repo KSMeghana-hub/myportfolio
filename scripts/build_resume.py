@@ -166,3 +166,19 @@ doc = SimpleDocTemplate(
 )
 doc.build(story)
 print("pages:", doc.page)
+
+# Preview image for the site's "View Resume" viewer (phones can't show PDFs inline),
+# written next to the PDF so the two never drift apart. Needs PyMuPDF + Pillow.
+try:
+    import io
+    import pymupdf
+    from PIL import Image
+except ImportError:
+    print("preview skipped: pip install pymupdf pillow")
+else:
+    page = pymupdf.open(OUT)[0]
+    png = page.get_pixmap(dpi=200).tobytes("png")
+    preview = OUT.rsplit(".", 1)[0] + ".webp"
+    # lossless: crisper text and ~half the size of lossy for a mostly-white page
+    Image.open(io.BytesIO(png)).convert("RGB").save(preview, "WEBP", lossless=True, method=6)
+    print("preview:", preview)

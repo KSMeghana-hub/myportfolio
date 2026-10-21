@@ -6,6 +6,8 @@ export const Up = () => <svg viewBox="0 0 24 24" {...stroke} aria-hidden="true">
 export const Close = () => <svg viewBox="0 0 24 24" {...stroke} aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>;
 export const Copy = () => <svg viewBox="0 0 24 24" {...stroke} strokeWidth="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="3" /><path d="M5 15V6a3 3 0 0 1 3-3h7" /></svg>;
 export const Check = () => <svg viewBox="0 0 24 24" {...stroke} strokeWidth="2.6" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" /></svg>;
+export const Eye = () => <svg viewBox="0 0 24 24" {...stroke} strokeWidth="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg>;
+export const External = () => <svg viewBox="0 0 24 24" {...stroke} strokeWidth="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>;
 export const Expand = () => <svg viewBox="0 0 24 24" {...stroke} strokeWidth="2" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" /></svg>;
 export const Mail = ({ color = 'currentColor' }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m4 7 8 6 8-6" /></svg>

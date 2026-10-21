@@ -16,6 +16,8 @@ export const profile = {
   github: 'https://github.com/KSMeghana-hub',
   githubUser: 'KSMeghana-hub',
   resume: 'K_S_Meghana_Resume.pdf',
+  // generated alongside the PDF by scripts/build_resume.py
+  resumePreview: { src: 'K_S_Meghana_Resume.webp', w: 1654, h: 2339 },
   photo: { webp: 'meghana.webp', jpg: 'meghana.jpg', w: 760, h: 1009 },
 };
 

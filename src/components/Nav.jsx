@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { nav, profile } from '../data.js';
-import { Download } from './Icons.jsx';
+import { Download, Eye } from './Icons.jsx';
+import { viewResumeProps } from './ResumeViewer.jsx';
 
 const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
-export default function Nav() {
+export default function Nav({ onViewResume }) {
   const [active, setActive] = useState('home');
   const [open, setOpen] = useState(false);
   const [ind, setInd] = useState({ x: 0, w: 0 });
@@ -44,9 +45,10 @@ export default function Nav() {
             className={active === id ? 'active' : undefined} aria-current={active === id ? 'true' : undefined}
             onClick={() => setOpen(false)}>{label}</a>
         ))}
+        <a {...viewResumeProps(() => { setOpen(false); onViewResume(); })} className="m-resume">View Resume <Eye /></a>
         <a href={profile.resume} className="m-resume" download>Download Resume <Download /></a>
       </nav>
-      <a href={profile.resume} className="btn btn-coral btn-sm" download>Resume <Download /></a>
+      <a {...viewResumeProps(onViewResume)} className="btn btn-coral btn-sm">View Resume <Eye /></a>
       <button className="menu-btn" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="navLinks"
         onClick={() => setOpen((o) => !o)}><span /></button>
     </header>

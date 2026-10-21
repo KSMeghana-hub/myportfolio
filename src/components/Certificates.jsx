@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { certificates } from '../data.js';
 import { SectionHead } from './Sections.jsx';
-import { Close, Expand } from './Icons.jsx';
+import Modal from './Modal.jsx';
+import { Expand } from './Icons.jsx';
 
 const src = (id, w) => `certs/${id}-${w}.webp`;
 // Real moulding texture sampled from each photographed frame, shaded per face for depth.
@@ -60,42 +61,26 @@ function Frame({ c, side, hot, setHot, onOpen }) {
 }
 
 function Lightbox({ c, onClose }) {
-  const closeRef = useRef(null);
-  useEffect(() => {
-    const prev = document.activeElement;
-    const onKey = (e) => e.key === 'Escape' && onClose();
-    document.addEventListener('keydown', onKey);
-    document.documentElement.style.overflow = 'hidden';
-    closeRef.current?.focus();
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.documentElement.style.overflow = '';
-      prev?.focus?.();
-    };
-  }, [onClose]);
   return (
-    <div className="lb" role="dialog" aria-modal="true" aria-label={`${c.title}, ${c.course}`} onClick={onClose}>
-      <div className="lb-card" onClick={(e) => e.stopPropagation()}>
-        <button type="button" className="lb-close" ref={closeRef} onClick={onClose} aria-label="Close certificate"><Close /></button>
-        <div className="lb-img">
-          <img src={src(c.id, 1200)} alt={`Certificate awarded to Meghana K S: ${c.title}, ${c.course}`} width="1200" height="1697" />
-        </div>
-        <div className="lb-info">
-          <span className="label">Certificate</span>
-          <h3>{c.title}</h3>
-          <p className="lb-course">{c.course}</p>
-          <dl>
-            <div><dt>Awarded to</dt><dd>Meghana K S</dd></div>
-            <div><dt>Held by</dt><dd>{c.issuer}</dd></div>
-            <div><dt>In association with</dt><dd>{c.partner}</dd></div>
-            <div><dt>Issued</dt><dd>{c.date}</dd></div>
-            <div><dt>Verification code</dt><dd><code>{c.code}</code></dd></div>
-          </dl>
-          <span className="label">Topics covered</span>
-          <ul>{c.topics.map((t) => <li key={t}>{t}</li>)}</ul>
-        </div>
+    <Modal label={`certificate: ${c.title}, ${c.course}`} onClose={onClose}>
+      <div className="lb-img">
+        <img src={src(c.id, 1200)} alt={`Certificate awarded to Meghana K S: ${c.title}, ${c.course}`} width="1200" height="1697" />
       </div>
-    </div>
+      <div className="lb-info">
+        <span className="label">Certificate</span>
+        <h3>{c.title}</h3>
+        <p className="lb-course">{c.course}</p>
+        <dl>
+          <div><dt>Awarded to</dt><dd>Meghana K S</dd></div>
+          <div><dt>Held by</dt><dd>{c.issuer}</dd></div>
+          <div><dt>In association with</dt><dd>{c.partner}</dd></div>
+          <div><dt>Issued</dt><dd>{c.date}</dd></div>
+          <div><dt>Verification code</dt><dd><code>{c.code}</code></dd></div>
+        </dl>
+        <span className="label">Topics covered</span>
+        <ul>{c.topics.map((t) => <li key={t}>{t}</li>)}</ul>
+      </div>
+    </Modal>
   );
 }
 

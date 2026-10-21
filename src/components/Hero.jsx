@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { heroTags, profile, roles, stats } from '../data.js';
-import { Arrow, Download, GitHub, LinkedIn, Mail } from './Icons.jsx';
+import { Arrow, Download, Eye, GitHub, LinkedIn, Mail } from './Icons.jsx';
+import { viewResumeProps } from './ResumeViewer.jsx';
 
 // Isolated so the per-letter updates re-render only this span.
 function Typewriter() {
@@ -23,7 +24,7 @@ function Typewriter() {
   return <span className="t">{text}</span>;
 }
 
-export default function Hero() {
+export default function Hero({ onViewResume }) {
   const { photo } = profile;
   return (
     <section className="hero" id="home">
@@ -38,8 +39,9 @@ export default function Hero() {
               foundation in <b>manual testing</b>, test case preparation, defect reporting, <b>SQL</b> and <b>Java</b>.
             </p>
             <div className="hero-cta rise" style={{ '--d': '.28s' }}>
-              <a href="#projects" className="btn btn-primary mag-btn">View Projects <Arrow /></a>
+              <a {...viewResumeProps(onViewResume)} className="btn btn-primary mag-btn">View Resume <Eye /></a>
               <a href={profile.resume} className="btn btn-ghost mag-btn" download>Download Resume <Download /></a>
+              <a href="#projects" className="btn btn-ghost mag-btn">View Projects <Arrow /></a>
             </div>
             <div className="socials rise" style={{ '--d': '.34s' }}>
               <span className="lbl">Connect</span>

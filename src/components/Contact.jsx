@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { profile } from '../data.js';
-import { Arrow, Check, Copy, Download, GitHub, LinkedIn, Mail } from './Icons.jsx';
+import { Arrow, Check, Copy, Download, Eye, GitHub, LinkedIn, Mail } from './Icons.jsx';
+import { viewResumeProps } from './ResumeViewer.jsx';
 
-export default function Contact() {
+export default function Contact({ onViewResume }) {
   const [copied, setCopied] = useState(false);
   const [user, domain] = profile.email.split('@');
   const copy = async () => {
@@ -19,6 +20,7 @@ export default function Contact() {
             <p>I am open to Software Testing and Quality Assurance internships and entry-level opportunities. Please feel free to reach out by email or connect with me on LinkedIn.</p>
             <div className="hero-cta">
               <a href={`mailto:${profile.email}`} className="btn btn-primary mag-btn">Email Me <Mail /></a>
+              <a {...viewResumeProps(onViewResume)} className="btn btn-ghost mag-btn">View Resume <Eye /></a>
               <a href={profile.resume} className="btn btn-ghost mag-btn" download>Download Resume <Download /></a>
             </div>
           </div>
