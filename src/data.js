@@ -60,7 +60,7 @@ export const education = [
 
 export const certificates = [
   {
-    id: 'rise-module-1',
+    id: 'rise-module-1', module: 1, accent: '#0D9488',
     course: '2024–2025 Module 1',
     title: 'RISE Institute of Higher Technology',
     issuer: 'RISE (Research Industrial Systems Engineering), Austria',
@@ -70,7 +70,7 @@ export const certificates = [
     code: 'NhgKdDMVCP',
   },
   {
-    id: 'rise-module-2',
+    id: 'rise-module-2', module: 2, accent: '#E5486A',
     course: '2026 Module 2',
     title: 'RISE Institute of Higher Technology',
     issuer: 'RISE (Research Industrial Systems Engineering), Austria',
